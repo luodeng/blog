@@ -1,0 +1,21 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /backend
+spring:
+  profiles:
+    active: dev
+  application:
+    name: backend
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+    database: mysql
+logging:
+  file: ${user.home}/logs/blog-backend.log
+  level:
+    root: info
+    com.roden.blog: debug
+
+
