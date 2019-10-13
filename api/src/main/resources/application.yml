@@ -1,0 +1,17 @@
+server:
+  port: 8090
+  servlet:
+    context-path: /api
+spring:
+  profiles:
+    active: dev
+logging:
+  file: ${user.home}/logs/blog.log
+  level:
+    root: info
+    com.roden.blog: debug
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+  mapper-locations: classpath:mappers/*Mapper.xml
+# config-location: mybatis-config.xml

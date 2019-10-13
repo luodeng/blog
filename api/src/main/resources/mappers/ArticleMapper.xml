@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.roden.blog.api.dao.ArticleDAO" >
+
+    <select id="get"  resultType="com.roden.blog.api.domain.ArticleDO">
+
+    </select>
+    <select id="listAll" resultType="com.roden.blog.api.domain.ArticleDO">
+
+    </select>
+    <select id="count" resultType="java.lang.Integer">
+
+    </select>
+    <insert id="insert" >
+
+    </insert>
+    <update id="delete">
+
+    </update>
+    <update id="update">
+
+    </update>
+</mapper>
