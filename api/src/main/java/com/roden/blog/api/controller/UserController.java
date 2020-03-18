@@ -2,6 +2,7 @@ package com.roden.blog.api.controller;
 
 import com.github.pagehelper.PageHelper;
 import com.roden.blog.api.domain.UserDO;
+import com.roden.blog.api.service.JwtService;
 import com.roden.blog.api.service.UserService;
 import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +11,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import java.time.LocalDateTime;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 @Log
@@ -19,6 +22,16 @@ import java.util.List;
 public class UserController {
     @Autowired
     UserService userService;
+
+    @GetMapping("/login")
+    Object login(String userName){
+        log.info("login");
+        UserDO userDO=userService.getByUserName(userName);
+        Map map=new HashMap();
+        map.put("authorization", JwtService.createJWT(map,userDO.getId().toString(),1000*60*60*30));
+        return map;
+    }
+
 
     @GetMapping("/getUserInfo")
     UserDO getUserInfo(String userName){
